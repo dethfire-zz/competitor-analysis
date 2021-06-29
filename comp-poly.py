@@ -187,7 +187,7 @@ with st.form("data"):
 
               response = requests.request("GET", url, headers=headers, data=payload)
               response = response.text.split("\n")
-              keyword_count.append(len(response)-2)
+              keyword_count2.append(len(response)-2)
           else:
               keyword_count2.append(0)
 
