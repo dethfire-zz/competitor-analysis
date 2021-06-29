@@ -26,7 +26,7 @@ st.markdown("""
 <li>Upload SF crawl CSV of own site</li>
 <li>Upload SF crawl CSV of competitor</li>
 <li>(optional) Find Semrush API key. API cost = 10 credits * keyword per URL. Keyword reports capped to max 50 keywords per URL. </li>
-<li>Not recommended for sites with several thousands pages or more</li>
+<li>API feature not recommended for sites with several thousands pages or more. Test first without to see how many matches are returned.</li>
 </ol>
 """, unsafe_allow_html=True)
 
@@ -87,11 +87,10 @@ with st.form("data"):
         df_results = df_results.sort_values(by='Similarity', ascending=False)
         df_results["Similarity"] = df_results["Similarity"].round(3)
 
-        index_names = df_results[ df_results['Similarity'] < .700 ].index
+        index_names = df_results[ df_results['Similarity'] < .857 ].index
         df_results.drop(index_names, inplace = True)
         
         st.write("(2/4) Fuzzy URL Matching... complete")
-
 
         # merge dfs
         df_merge1 = pd.merge(df_results, df_you, left_on='From', right_on='Address', how='inner')
