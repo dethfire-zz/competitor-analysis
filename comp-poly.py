@@ -192,7 +192,10 @@ with st.form("data"):
 
         df_merge2["Keyword Difference"] = keydiff
         
-        st.write("(4/4) Finding URL Keyword Difference... complete")
+        if apikey not none:
+            st.write("(4/4) Finding URL Keyword Difference... complete")
+        else:
+            st.write("(4/4) Finding URL Keyword Difference... :warning: No API Key")
 
         def get_csv_download_link(df, title):
             csv = df.to_csv(index=False)
