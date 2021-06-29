@@ -40,8 +40,8 @@ with st.form("data"):
     
     if submitted:
         # import crawl data
-        df_you = pd.read_csv(get_your_crawl)[['Address','Status Code','Indexability Status','Title 1']]
-        df_comp = pd.read_csv(get_comp_crawl)[['Address','Status Code','Indexability Status','Title 1']]
+        df_you = pd.read_csv(get_your_crawl)[['Address','Status Code','Indexability','Title 1']]
+        df_comp = pd.read_csv(get_comp_crawl)[['Address','Status Code','Indexability','Title 1']]
 
         #get first row of each address
         domainrecord1 = df_you["Address"].loc[0]
@@ -62,13 +62,13 @@ with st.form("data"):
 
         df_you = df_you[~df_you['Address'].str.contains('page')]
         df_you = df_you[df_you['Status Code'] == 200]
-        df_you = df_you[df_you['Indexability Status'] != 'nondex']
+        df_you = df_you[df_you['Indexability'] == 'Indexable']
         df_you['Address'] = df_you['Address'].str.replace(domain1,'')
         df_you['Title 1'] = df_you['Title 1'].str.replace(url_branding1,'')
 
         df_comp = df_comp[~df_comp['Address'].str.contains('page')]
         df_comp = df_comp[df_comp['Status Code'] == 200]
-        df_comp = df_comp[df_comp['Indexability Status'] != 'noindex']
+        df_comp = df_comp[df_comp['Indexability'] == 'Indexable']
         df_comp['Address'] = df_comp['Address'].str.replace(domain2,'')
         df_comp['Title 1'] = df_comp['Title 1'].str.replace(url_branding2,'')
 
@@ -95,11 +95,11 @@ with st.form("data"):
 
         # merge dfs
         df_merge1 = pd.merge(df_results, df_you, left_on='From', right_on='Address', how='inner')
-        df_merge1 = df_merge1.drop(columns=['Address', 'Status Code'])
+        df_merge1 = df_merge1.drop(columns=['Address','Indexability', 'Status Code'])
         df_merge1 = df_merge1.rename(columns={"From": name1 +" URL", "To": name2 + " URL", "Title 1": name1 +" Title"})
 
         df_merge2 = pd.merge(df_merge1, df_comp, left_on= name2 + ' URL', right_on='Address', how='inner')
-        df_merge2 = df_merge2.drop(columns=['Address', 'Status Code'])
+        df_merge2 = df_merge2.drop(columns=['Address', 'Indexability', 'Status Code'])
         df_merge2 = df_merge2.rename(columns={"Title 1": name2 + " Title"})
 
         # clean up df
