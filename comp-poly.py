@@ -87,7 +87,7 @@ with st.form("data"):
         df_results = df_results.sort_values(by='Similarity', ascending=False)
         df_results["Similarity"] = df_results["Similarity"].round(3)
 
-        index_names = df_results[ df_results['Similarity'] < .7 ].index
+        index_names = df_results[ df_results['Similarity'] < .700 ].index
         df_results.drop(index_names, inplace = True)
         
         st.write("(2/4) Fuzzy URL Matching... complete")
