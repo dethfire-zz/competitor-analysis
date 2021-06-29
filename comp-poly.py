@@ -23,7 +23,7 @@ st.markdown("""
 <p class="big-font">Competitive URL Analysis</p>
 <p>Match your URLs to your competitors, find title keyword and ranking keyword count differences</p>
 <b>Directions: </b></ br><ol>
-<li>Upload Screaming Frog HTML CSV of own site and competitor ('Address','Status Code','Indexability','Title 1').</li>
+<li>Upload Screaming Frog HTML CSV of own site and competitor (Address,Status Code,Indexability,Title 1).</li>
 <li>Branding inputs strip the brand from the titles for better keyword difference.</li>
 <li>(optional) Find Semrush API key. API cost = 10 credits * keyword per URL. Keyword reports capped to max 50 keywords per URL. </li>
 <li>API feature not recommended for sites with several thousands pages or more. Test first without to see how many matches are returned.</li>
