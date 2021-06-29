@@ -193,7 +193,7 @@ with st.form("data"):
 
         df_merge2["Keyword Difference"] = keydiff
         
-        if apikey not None:
+        if apikey is not None:
             st.write("(4/4) Finding URL Keyword Difference... complete")
         else:
             st.write("(4/4) Finding URL Keyword Difference... :warning: No API Key")
