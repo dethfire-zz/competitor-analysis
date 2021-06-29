@@ -34,7 +34,7 @@ with st.form("data"):
     url_branding1 = st.text_input('Enter your title branding','ie. | ABC Tools')
     get_comp_crawl = st.file_uploader("Upload your competitor SG CSV",type=['csv'])
     url_branding2 = st.text_input('Enter your competitor title branding','ie - XYZ Alloys')
-    apikey = st.text_input('Enter your semrush api key','b678f88d32c89d215bc0a7cd9107e8246ec29ce7')
+    apikey = st.text_input('Enter your semrush api key','')
     submitted = st.form_submit_button("Process")
     
     if submitted:
