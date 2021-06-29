@@ -23,7 +23,7 @@ st.markdown("""
 <p class="big-font">Competitive URL Analysis</p>
 <p>Match your URLs to your competitors, find title keyword and ranking keyword count differences</p>
 <b>Directions: </b></ br><ol>
-<li>Upload SF crawl CSV of own site and competitor</li>
+<li>Upload Screaming Frog HTML CSV of own site and competitor</li>
 <li>Branding inputs strip the brand from the titles for better keyword difference.</li>
 <li>(optional) Find Semrush API key. API cost = 10 credits * keyword per URL. Keyword reports capped to max 50 keywords per URL. </li>
 <li>API feature not recommended for sites with several thousands pages or more. Test first without to see how many matches are returned.</li>
@@ -31,11 +31,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.form("data"):
-    get_your_crawl = st.file_uploader("Upload your SG CSV",type=['csv'])
-    url_branding1 = st.text_input('Enter your title branding','ie. | ABC Tools')
-    get_comp_crawl = st.file_uploader("Upload your competitor SG CSV",type=['csv'])
-    url_branding2 = st.text_input('Enter your competitor title branding','ie - XYZ Alloys')
-    apikey = st.text_input('Enter your semrush api key','')
+    get_your_crawl = st.file_uploader("Upload your SF CSV",type=['csv'])
+    url_branding1 = st.text_input('Your title branding','ie. | ABC Tools')
+    get_comp_crawl = st.file_uploader("Competitor SF CSV",type=['csv'])
+    url_branding2 = st.text_input('Competitor title branding','ie - XYZ Alloys')
+    apikey = st.text_input('Semrush API key','')
     submitted = st.form_submit_button("Process")
     
     if submitted:
