@@ -161,14 +161,17 @@ with st.form("data"):
         keyword_count = []
 
         for x in df_comp3:
-          url = f'https://api.semrush.com/?type=url_organic&key={apikey}&display_limit=50&url={x}&database=us'
+          if apikey != '':
+              url = f'https://api.semrush.com/?type=url_organic&key={apikey}&display_limit=50&url={x}&database=us'
 
-          payload={}
-          headers = {}
+              payload={}
+              headers = {}
 
-          response = requests.request("GET", url, headers=headers, data=payload)
-          response = response.text.split("\n")
-          keyword_count.append(len(response)-2)
+              response = requests.request("GET", url, headers=headers, data=payload)
+              response = response.text.split("\n")
+              keyword_count.append(len(response)-2)
+          else:
+              keyword_count.append(0)
 
         df_merge2[name2 + " Keywords"] = keyword_count
 
@@ -176,14 +179,17 @@ with st.form("data"):
         keyword_count2 = []
 
         for x in df_you3:
-          url = f'https://api.semrush.com/?type=url_organic&key={apikey}&display_limit=50&url={x}&database=us'
+          if apikey != '':
+              url = f'https://api.semrush.com/?type=url_organic&key={apikey}&display_limit=50&url={x}&database=us'
 
-          payload={}
-          headers = {}
+              payload={}
+              headers = {}
 
-          response = requests.request("GET", url, headers=headers, data=payload)
-          response = response.text.split("\n")
-          keyword_count2.append(len(response)-2)
+              response = requests.request("GET", url, headers=headers, data=payload)
+              response = response.text.split("\n")
+              keyword_count.append(len(response)-2)
+          else:
+              keyword_count2.append(0)
 
         df_merge2[name1 + " Keywords"] = keyword_count2
 
