@@ -20,7 +20,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<p class="big-font">Competitive Analysis</p>
+<p class="big-font">Competitive URL Analysis</p>
 <p>Match your URLs to your competitors, find title keyword and ranking keyword count differences</p>
 <b>Directions: </b></ br><ol>
 <li>Upload SF crawl CSV of own site</li>
